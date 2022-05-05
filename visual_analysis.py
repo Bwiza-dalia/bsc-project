@@ -5,6 +5,7 @@ from data import dataset
 dataframe = dataset()
 
 def sales_section():
+    #st.line_chart(chart_data)
     st.text('Bellow is a sneak peak on to our dataset')
     st.dataframe(dataframe.sales.head())
     st.markdown("""---""") 
