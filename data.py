@@ -25,7 +25,10 @@ class dataset:
 
     def add_profit(self):
         self.sales['Profit'] = (self.sales['Unit Price']- self.sales['Unit Cost'])-self.sales['Discount Applied']
-
+    def add_bandwidth(self):
+        self.sales['bandwidth'] = (self.sales).merge(self.products[['_ProductID','Bandwidth']], left_on = "_ProductID", right_on = "_ProductID", how = "left")
+    def add_month_year(self):
+        self.sales['Month-Year']= self.sales['OrderDate'].dt.strftime('%Y/%m')
     @property
     def best_months_df(self):
         best_month = self.sales.groupby('Month').sum()

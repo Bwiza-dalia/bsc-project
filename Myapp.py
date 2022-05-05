@@ -41,8 +41,10 @@ def wiki_section():
         st.subheader("Total Profit")
         st.metric(label="", value="{:,} RWF".format(dataframe.sales.Profit.sum()))
         st.markdown("""---""")
+        
     #st.subheader(f"US $ {total_orders:,}")
     #scope of project
+    st.dataframe(dataframe.sales)
     st.subheader("scope of project")
     # st.text("Broadband Systems Corporation has been at the forefront of" )
     #st.text("ICT services in Rwanda with its mission of providing world-class broadband connectivity and solutions to empower citizens,") 
@@ -58,7 +60,7 @@ def wiki_section():
     st.text("The optimize this model by avoiding unexpected burdens on production ")
     st.text("To provide a user interface that visualizes our model well.")
     st.markdown("""---""")
-    # #trendings
+    # trends 
     st.subheader("Trends")
     
 
