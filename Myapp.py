@@ -44,11 +44,12 @@ def wiki_section():
     #st.subheader(f"US $ {total_orders:,}")
     #scope of project
     st.subheader("scope of project")
-    st.text("Broadband Systems Corporation has been at the forefront of" )
-    st.text("ICT services in Rwanda with its mission of providing world-class broadband connectivity and solutions to empower citizens,") 
-    st.text("communities, government, and businesses in Rwanda and the region, However, Bsc logistics and sales are not data-driven,")
-    st.text("this can reduce the delivery services and increase the wastage.")
-    st.text(" This project is designed with the capacity of making their business model more data-driven by  making the balance between Bsc’s demands and supply.")
+    # st.text("Broadband Systems Corporation has been at the forefront of" )
+    #st.text("ICT services in Rwanda with its mission of providing world-class broadband connectivity and solutions to empower citizens,") 
+    # st.text("communities, government, and businesses in Rwanda and the region, However, Bsc logistics and sales are not data-driven,")
+    #st.text("this can reduce the delivery services and increase the wastage.")
+    st.text(" This project is designed with the capacity of making their business model more data-driven ")
+    st.text("by  making the balance between Bsc’s demands and supply.")
    
     st.markdown("""---""")    
     #Project Goals
@@ -57,7 +58,7 @@ def wiki_section():
     st.text("The optimize this model by avoiding unexpected burdens on production ")
     st.text("To provide a user interface that visualizes our model well.")
     st.markdown("""---""")
-    # #trends
+    # #trendings
     st.subheader("Trends")
     
 
