@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 
 class dataset:
@@ -15,8 +16,28 @@ class dataset:
         self.add_month()
         #add profit
         self.add_profit()
+        self.add_month_year()
+        #self.add_bandwidth()
+        self.demand_pro()
 
-        
+
+    def demand_pro(self):
+        prod_demand = {}
+        for product in list(self.sales['_ProductID'].unique()):
+         month_demand = []
+        for mo in list(self.sales['Month-Year'].unique()):
+          b = self.sales.loc[(self.sales['Month-Year'] == mo) & (self.sales['_ProductID'] == product)].OrderNumber.count() 
+          month_demand.append(b)
+
+        prod_demand[product] = month_demand
+        prod_demand['Month-Year'] = self.sales['Month-Year'].unique()
+        bv= pd.DataFrame(prod_demand)
+        chart_data = pd.DataFrame(
+            np.random.randn(20, 2),
+            columns=['Month-Year', '1'])
+
+
+
     def add_month(self):
         self.sales['Month'] = pd.DatetimeIndex(self.sales['OrderDate']).month
 
@@ -25,8 +46,8 @@ class dataset:
 
     def add_profit(self):
         self.sales['Profit'] = (self.sales['Unit Price']- self.sales['Unit Cost'])-self.sales['Discount Applied']
-    def add_bandwidth(self):
-        self.sales['bandwidth'] = (self.sales).merge(self.products[['_ProductID','Bandwidth']], left_on = "_ProductID", right_on = "_ProductID", how = "left")
+    # def add_bandwidth(self):
+    #     self.sales['bandwidth'] = self.sales(pd.concat(self.products[('Bandwidth','_ProductID')], keys=['Bandwidth','_ProductID'], axis=1))
     def add_month_year(self):
         self.sales['Month-Year']= self.sales['OrderDate'].dt.strftime('%Y/%m')
     @property
