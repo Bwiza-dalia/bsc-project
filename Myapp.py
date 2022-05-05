@@ -41,8 +41,6 @@ def wiki_section():
         st.subheader("Total Profit")
         st.metric(label="", value="{:,} RWF".format(dataframe.sales.Profit.sum()))
         st.markdown("""---""")
-        
-    #st.subheader(f"US $ {total_orders:,}")
     #scope of project
     st.dataframe(dataframe.sales)
     st.subheader("scope of project")
