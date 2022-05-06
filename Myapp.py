@@ -28,19 +28,7 @@ SIDEBAR_OPTIONS = [SIDEBAR_OPTION_PROJECT_WIKI, SIDEBAR_OPTION_ANALYSIS, SIDEBAR
 
 
 def wiki_section():
-    left_column, middel_column, right_column = st.columns(3)
-    with left_column:
-        st.subheader("Total Orders")
-        st.metric(label="", value="{:,}".format(dataframe.sales.OrderNumber.count()))
-        st.markdown("""---""")
-    with middel_column:
-        st.subheader("Total Revenue")
-        st.metric(label="", value="{:,} RWF".format(dataframe.sales.Total.sum()))
-        st.markdown("""---""")
-    with right_column:
-        st.subheader("Total Profit")
-        st.metric(label="", value="{:,} RWF".format(dataframe.sales.Profit.sum()))
-        st.markdown("""---""")
+    
     #scope of project
     st.dataframe(dataframe.sales)
     st.subheader("scope of project")
@@ -66,25 +54,25 @@ def visual_analysis_section():
 
     #Defining SUB-SIDEBAR OPTIONS in the Visualisation section
     VIZ_SIDEBAR_OPTION_SALES = "SALES"
-    VIZ_SIDEBAR_OPTION_CUSTOMERS = "CUSTOMERS"
-    VIZ_SIDEBAR_OPTION_PRODUCTS = "PRODUCTS"
-    VIZ_SIDEBAR_OPTION_SITE = "SITE"
-    VIZ_SIDEBAR_OPTION_SALES_TEAM = "SALES TEAM"
+    # VIZ_SIDEBAR_OPTION_CUSTOMERS = "CUSTOMERS"
+    # VIZ_SIDEBAR_OPTION_PRODUCTS = "PRODUCTS"
+    # VIZ_SIDEBAR_OPTION_SITE = "SITE"
+    # VIZ_SIDEBAR_OPTION_SALES_TEAM = "SALES TEAM"
 
-    VIZ_SIDEBAR_OPTIONS = [VIZ_SIDEBAR_OPTION_SALES, VIZ_SIDEBAR_OPTION_CUSTOMERS, VIZ_SIDEBAR_OPTION_PRODUCTS, VIZ_SIDEBAR_OPTION_SITE, VIZ_SIDEBAR_OPTION_SALES_TEAM]
+    VIZ_SIDEBAR_OPTIONS = [VIZ_SIDEBAR_OPTION_SALES]
 
     VIZ_SIDEBAR_STATUS = st.sidebar.selectbox('Visualisation Section', VIZ_SIDEBAR_OPTIONS)
 
     if VIZ_SIDEBAR_STATUS == VIZ_SIDEBAR_OPTION_SALES:
         sales_section()
-    elif VIZ_SIDEBAR_STATUS == VIZ_SIDEBAR_OPTION_CUSTOMERS:
-        st.text("Customers")
-    elif VIZ_SIDEBAR_STATUS == VIZ_SIDEBAR_OPTION_PRODUCTS:
-        st.text("Product")
-    elif VIZ_SIDEBAR_STATUS == VIZ_SIDEBAR_OPTION_SITE:
-        st.text("Site Data")
-    elif VIZ_SIDEBAR_STATUS == VIZ_SIDEBAR_OPTION_SALES_TEAM:
-        st.text("Sales team")
+    # elif VIZ_SIDEBAR_STATUS == VIZ_SIDEBAR_OPTION_CUSTOMERS:
+    #     st.text("Customers")
+    # elif VIZ_SIDEBAR_STATUS == VIZ_SIDEBAR_OPTION_PRODUCTS:
+    #     st.text("Product")
+    # elif VIZ_SIDEBAR_STATUS == VIZ_SIDEBAR_OPTION_SITE:
+    #     st.text("Site Data")
+    # elif VIZ_SIDEBAR_STATUS == VIZ_SIDEBAR_OPTION_SALES_TEAM:
+    #     st.text("Sales team")
     else:
         pass
 

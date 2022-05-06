@@ -5,6 +5,26 @@ from data import dataset
 dataframe = dataset()
 
 def sales_section():
+    st.title("data visualization")
+    st.markdown("##")
+
+
+    left_column, middel_column, right_column = st.columns(3)
+    with left_column:
+        st.subheader("Total Orders")
+        st.metric(label="", value="{:,}".format(dataframe.sales.OrderNumber.count()))
+        st.markdown("""---""")
+    with middel_column:
+        st.subheader("Total Revenue")
+        st.metric(label="", value="{:,} RWF".format(dataframe.sales.Total.sum()))
+        st.markdown("""---""")
+    with right_column:
+        st.subheader("Total Profit")
+        st.metric(label="", value="{:,} RWF".format(dataframe.sales.Profit.sum()))
+        st.markdown("""---""")
+
+
+    
     #st.line_chart(chart_data)
     st.text('Bellow is a sneak peak on to our dataset')
     st.dataframe(dataframe.sales.head())
