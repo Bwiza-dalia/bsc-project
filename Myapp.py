@@ -2,6 +2,7 @@ import streamlit as st
 from visual_analysis import *
 from PIL import Image
 from data import *
+from form import *
 dataframe = dataset()
 st.set_page_config(page_title="sales dashboard", page_icon=":bar_chart:", layout="wide")
 image = Image.open('BSC-High-res.-vector-logo-01.png')
@@ -11,8 +12,8 @@ st.title(":bar_chart: sales Dashboard")
 st.markdown("##")
 
 #--- top kpi's ---
-total_orders = dataframe.sales.groupby('OrderNumber').sum()
-dataframe.sales.OrderNumber = dataframe.sales.OrderNumber.astype('string')
+# total_orders = dataframe.sales.groupby('OrderNumber').sum()
+# dataframe.sales.OrderNumber = dataframe.sales.OrderNumber.astype('string')
 
 
 
@@ -90,6 +91,7 @@ def main():
         visual_analysis_section()
     elif SIDEBAR_STATUS == SIDEBAR_OPTION_FORECAST:
         st.text("Welcome to the model prediction")
+        form_function()
     elif SIDEBAR_STATUS == SIDEBAR_OPTION_TEAM:
         st.text("Meet the team")
     else:

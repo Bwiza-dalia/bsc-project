@@ -24,17 +24,15 @@ class dataset:
     def demand_pro(self):
         prod_demand = {}
         for product in list(self.sales['_ProductID'].unique()):
-         month_demand = []
-        for mo in list(self.sales['Month-Year'].unique()):
-          b = self.sales.loc[(self.sales['Month-Year'] == mo) & (self.sales['_ProductID'] == product)].OrderNumber.count() 
-          month_demand.append(b)
+            month_demand = []
+            for mo in list(self.sales['Month-Year'].unique()):
+                b = self.sales.loc[(self.sales['Month-Year'] == mo) & (self.sales['_ProductID'] == product)].OrderNumber.count() 
+                month_demand.append(b)
 
-        prod_demand[product] = month_demand
+            prod_demand[product] = month_demand
         prod_demand['Month-Year'] = self.sales['Month-Year'].unique()
-        bv= pd.DataFrame(prod_demand)
-        chart_data = pd.DataFrame(
-            np.random.randn(20, 2),
-            columns=['Month-Year', '1'])
+        self.bv = pd.DataFrame(prod_demand)
+        #self.bv.set_index('Month-Year')
 
 
 

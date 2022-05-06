@@ -1,5 +1,6 @@
 import streamlit as st
 from data import dataset
+from matplotlib import pyplot as plt
 
 
 dataframe = dataset()
@@ -25,7 +26,6 @@ def sales_section():
 
 
     
-    #st.line_chart(chart_data)
     st.text('Bellow is a sneak peak on to our dataset')
     st.dataframe(dataframe.sales.head())
     st.markdown("""---""") 
@@ -39,6 +39,16 @@ def sales_section():
     #st.text('Given that the best selling site has the id: {0} from the distric of {1}'.format(dataframe.best_district_df.idxmax(), dataframe.sites.iloc[dataframe.best_district_df.idxmax()]))
     st.text("Bellow is the are best selling product from the best site")
     st.dataframe(dataframe.best_district_products)
+    st.text("Bellow we shall showcase product sales per month")
+    st.dataframe(dataframe.bv)
+    labels = dataframe.bv.index
+    sizes = dataframe.bv
+
+    fig, ax = plt.subplots(figsize=(10,10))
+    ax.pie(sizes, labels=labels, autopct="%1.1f%%")
+    ax.axis("equal")
+
+    st.pyplot(fig)
     st.markdown("""---""") 
     # st.text("shows products that sold on same date")
     # st.dataframe(dataframe.daf.head())
